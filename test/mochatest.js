@@ -10,7 +10,7 @@ describe('Array', function() {
 
     it('should return API results', async()=> {
       let results = await ApiHelper.getResponseForApiRequest("hello");
-      console.log("results are" , results);
+      console.log("results are" , JSON.stringify(results));
       assert.ok(results);
     });
 

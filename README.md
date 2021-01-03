@@ -15,6 +15,7 @@ npm run dev
 Build for Production
 ```
 npm run build && npm run express
+in  dist folder
 ```
 
 

@@ -34,9 +34,10 @@
 
 
 			<div class="items-center p-6">
-				<a href=" " class="inline-block bg-yellow-500 text-black px-6 py-3 font-bold text-md hover:bg-gray-400"  >
-					Button
-				</a>
+				<div @click="fetchApiData()"
+							class="inline-block bg-yellow-500 text-black px-6 py-3 font-bold text-md hover:bg-gray-400"  >
+					GENERATE SEALED POOL
+				</div> <!--tried changing a to div to solve page reloading on press-->
 			</div>
 		<!--
 			<h1 class="text-2xl mb-4">You abused the gift of Magic.</h1>
@@ -90,13 +91,17 @@ export default {
   methods: {
 			fetchApiData: async function(){
 
-				  let response = await axios.get('/api/v1/my_first_api_call')
+				  let response = await axios.get('http://localhost:3000'+'/api/v1/my_first_api_call')
 
 					this.myVariable = response.data.apiEndpointName
 
 					console.log('got response data', response.data )
-			}
+			},
 
+			onButtonPress: async function(){
+				//await this.fetchApiData()
+				console.log("i hit the button")
+			}
 
   }
 

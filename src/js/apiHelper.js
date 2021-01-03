@@ -1,30 +1,21 @@
 const fs= require('fs');
-
-
+const sealer= require('./sealer.js');
+const decker = require('./decker.js');
 
 module.exports = class ApiHelper {
 
 
   static async getResponseForApiRequest(apiEndpointName){
 
-      ///write custom code here
-      /* maybe like looping through magic card files,
-      filtering, stor[filepathgoeshere]ing into variable, etc
-      */
+      let data = sealer.generateSealed();
+      let cardArray = data.cards;
 
-      let jsondata = fs.readFileSync(__dirname+
-      "/../assets/buttdata/butt.json");
-
-      let data = JSON.parse(jsondata);
+let getNamesResult = decker.getNames(cardArray);
 
       return {success:true,
          apiEndpointName: apiEndpointName,
-         outputData: data,
-       outputJson: jsondata.toString()}
+         outputData: data}
   }
-
-
-
 
 
 }
